@@ -7,11 +7,12 @@
 
 import cv2
 import mediapipe as mp
+import numpy as np
 
 video = cv2.VideoCapture(0) # find the camera of the PC
 
 hand = mp.solutions.hands # from library mediapipe. In the case we use hand map
-Hands = hand.Hands(max_num_hands=1) # Max number of hands that sw recognize. # Hand detection
+Hands = hand.Hands(max_num_hands=2) # Max number of hands that sw recognize. # Hand detection
 mpDraw = mp.solutions.drawing_utils # Responsible to draw the ligation on the hand.
 
 while True:
@@ -31,9 +32,11 @@ while True:
                 pontos.append((cx, cy))
                 #print(pontos)
 
+    # left hand logic
+
     dedos = [8, 12, 16, 20]  #this values are reference  in mediapipe library (left hand)
 
-# left hand logic
+
 
     contador = 0
     if pontos:
@@ -45,6 +48,46 @@ while True:
 
 
     print(contador) # is possible to know how many fingers are lift
+
+    width, height = 300, 40
+    max_counter = 100
+
+    PWM = "0% de PWM"
+    if contador == 1:
+        print("10% de PWM")
+        PWM = "10% de PWM"
+
+    if contador == 2:
+        print("20% de PWM")
+        PWM = "20% de PWM"
+
+    if contador == 3:
+        print("30% de PWM")
+        PWM = "30% de PWM"
+
+    if contador == 4:
+        print("40% de PWM")
+        PWM = "40% de PWM"
+
+    if contador == 5:
+        print("50% de PWM")
+        PWM = "50% de PWM"
+
+    cv2.rectangle(img, (90, 10), (600, 100), (255, 0, 0), -1) # add rectangle
+    cv2.putText(img,str(PWM),(100,100),cv2.FONT_HERSHEY_SIMPLEX,2,(0,0,0),5) # add um number in image
+
+
+    #cv2.rectangle(img, (0,0), (width - 1, height - 1), (255, 255, 255), 1) #gray rectangle
+    cv2.rectangle(img, (200,150), (500, 110), (255, 255, 255), 1) #gray rectangle
+
+
+    #filled_width = int((contador*(10) / max_counter) * width) #porcentage calculus
+    filled_width = int((contador * (10)/ max_counter) * width)
+
+
+    if filled_width > 0:
+
+        cv2.rectangle(img, (200, 150), (200+filled_width - 1, 110), (0, 255, 0), -1)
 
     cv2.imshow("Imagem",img)
     cv2.waitKey(1)
