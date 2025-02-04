@@ -30,7 +30,7 @@ while True:
                 cx, cy = int(cord.x * w), int(cord.y * h) # variable conveter in pixel
                 #cv2.putText(img,str(id),(cx,cy+10),cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,0),2) # IS POSSIBLE TO SEE EACH NUMBER IN THE HANDLE #Debughand
                 pontos.append((cx, cy))
-                print(pontos)
+                #print(pontos)
 
     # left hand logic
 
@@ -85,11 +85,12 @@ while True:
 
 
     #filled_width = int((contador*(10) / max_counter) * width) #porcentage calculus
-    filled_width = int((contador * (20)/ max_counter) * width)
+    #def calculo_da_porcentagem(contador,max_counter,width):
 
+    filled_width = int((contador * (20)/ max_counter) * width)
+    #return  filled_width
 
     if filled_width > 0:
-
         cv2.rectangle(img, (200, 150), (200+filled_width - 1, 110), (0, 255, 0), -1)
 
     cv2.imshow("Imagem",img)
