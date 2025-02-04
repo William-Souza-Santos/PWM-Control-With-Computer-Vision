@@ -16,14 +16,18 @@ mpDraw = mp.solutions.drawing_utils # Responsible to draw the ligation on the ha
 
 while True:
     check, img = video.read()
-    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # conveter format of imagem from camera. BRG->RGB
+    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # conveter format of image from camera. BRG->RGB
     results = Hands.process(imgRGB)
     handsPoints = results.multi_hand_landmarks # obtain the condinators of the hand
-
+    h, w, _ = img.shape  # obtain dimension of image h higher w width
     if handsPoints:
         for points in handsPoints:
-            print(points)
+            #(points) # is visible see the the lendmarks
             mpDraw.draw_landmarks(img, points, hand.HAND_CONNECTIONS)
+            for id, cord in enumerate(points.landmark):
+                cx, cy = int(cord.x * w), int(cord.y * h) # variable conveter in pixel
+                cv2.putText(img,str(id),(cx,cy+10),cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,0),2) # IS POSSIBLE TO SEE EACH NUMBER IN THE HANDLE
+
 
     cv2.imshow("Imagem",img)
     cv2.waitKey(1)
