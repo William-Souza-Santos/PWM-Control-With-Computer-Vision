@@ -30,7 +30,7 @@ while True:
                 cx, cy = int(cord.x * w), int(cord.y * h) # variable conveter in pixel
                 #cv2.putText(img,str(id),(cx,cy+10),cv2.FONT_HERSHEY_SIMPLEX,0.5,(255,0),2) # IS POSSIBLE TO SEE EACH NUMBER IN THE HANDLE #Debughand
                 pontos.append((cx, cy))
-                #print(pontos)
+                print(pontos)
 
     # left hand logic
 
@@ -47,6 +47,9 @@ while True:
                 contador += 1
 
 
+
+
+
     print(contador) # is possible to know how many fingers are lift
 
     width, height = 300, 40
@@ -54,24 +57,24 @@ while True:
 
     PWM = "0% de PWM"
     if contador == 1:
-        print("10% de PWM")
-        PWM = "10% de PWM"
-
-    if contador == 2:
         print("20% de PWM")
         PWM = "20% de PWM"
 
-    if contador == 3:
-        print("30% de PWM")
-        PWM = "30% de PWM"
-
-    if contador == 4:
+    if contador == 2:
         print("40% de PWM")
         PWM = "40% de PWM"
 
+    if contador == 3:
+        print("60% de PWM")
+        PWM = "60% de PWM"
+
+    if contador == 4:
+        print("80% de PWM")
+        PWM = "80% de PWM"
+
     if contador == 5:
-        print("50% de PWM")
-        PWM = "50% de PWM"
+        print("100% de PWM")
+        PWM = "100% de PWM"
 
     cv2.rectangle(img, (90, 10), (600, 100), (255, 0, 0), -1) # add rectangle
     cv2.putText(img,str(PWM),(100,100),cv2.FONT_HERSHEY_SIMPLEX,2,(0,0,0),5) # add um number in image
@@ -82,7 +85,7 @@ while True:
 
 
     #filled_width = int((contador*(10) / max_counter) * width) #porcentage calculus
-    filled_width = int((contador * (10)/ max_counter) * width)
+    filled_width = int((contador * (20)/ max_counter) * width)
 
 
     if filled_width > 0:
