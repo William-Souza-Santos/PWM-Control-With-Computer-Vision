@@ -4,7 +4,7 @@ Control **PWM (Pulse Width Modulation)** using hand gestures! This project combi
 
 ![Computer Vision detect hand](https://github.com/William-Souza-Santos/PWM-Control-With-Computer-Vision/blob/main/Animation.gif)
 
-![Arduino](https://github.com/William-Souza-Santos/PWM-Control-With-Computer-Vision/blob/main/Animation.gif](https://github.com/William-Souza-Santos/PWM-Control-With-Computer-Vision/blob/main/Arduino.gif)
+![Arduino](https://github.com/William-Souza-Santos/PWM-Control-With-Computer-Vision/blob/main/Animation.gif]
 ---
 ---
 
