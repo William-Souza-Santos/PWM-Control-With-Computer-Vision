@@ -34,3 +34,5 @@ pip install opencv-python mediapipe pyserial
 ```
 
 ### Mediapipe Hands Map
+<img src="https://github.com/William-Souza-Santos/PWM-Control-With-Computer-Vision/blob/main/mediapipe_hands.jpg">
+
