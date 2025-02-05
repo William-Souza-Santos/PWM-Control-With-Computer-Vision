@@ -30,3 +30,6 @@ Control **PWM (Pulse Width Modulation)** using hand gestures! This project combi
 ### 1. Install Python Libraries
 ```bash
 pip install opencv-python mediapipe pyserial
+
+### Mediapipe Hand Map
+
