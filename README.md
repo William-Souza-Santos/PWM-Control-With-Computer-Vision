@@ -2,7 +2,7 @@
 
 Control **PWM (Pulse Width Modulation)** using hand gestures! This project combines **Computer Vision** (OpenCV + MediaPipe) with an **Arduino** to adjust PWM signals based on the number of fingers you show to the camera.
 
-[PWM-Control-With-Computer-Vision/animation.gif](PWM-Control-With-Computer-Vision/animation.gif)
+[PWM-Control-With-Computer-Vision/animation.gif](PWM-Control-With-Computer-Vision/blob/main/Animation.gif)
 ---
 
 ## ✨ Features
